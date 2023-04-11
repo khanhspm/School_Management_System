@@ -1,0 +1,11 @@
+// Never code in app.css
+// Code here -> run "npm run --watch" to copy to app.css
+
+@import "variables";
+
+h1{
+    color: $red-color;
+}
+h6{
+    color: green;
+}

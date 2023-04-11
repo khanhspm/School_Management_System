@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 //Template engine
 app.engine('.hdb', handlebars.engine({
-  extname: '.hdb'
+  extname: '.hdb'   // change file.handlebars to file.hdb
 }));
 app.set('view engine', '.hdb') 
 app.set('views', path.join(__dirname, 'resources\\views')) 
