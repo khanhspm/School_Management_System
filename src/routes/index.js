@@ -1,58 +1,23 @@
-const newsRouter = require('./news')
-const siteRouter = require('./site')
+const express = require('express');
+const router = express.Router();
+const User = require('../app/models/user');
 
-function route (app){
-    // body home
-app.get('/', (req, res) => {
-    res.render('home')
-  })
-  
-  app.get('/home', (req, res) => {
-    res.render('home')
-  })
-  
-  // body information
-  app.get('/infor', (req, res) => {
-    res.render('information')
-  })
-  
-  // body tuition
-  app.get('/tuition', (req, res) => {
-    res.render('tuition')
-  })
-  
-  // body meeting schedule
-  app.get('/meetsche', (req, res) => {
-    res.render('meeting_schedule')
-  })
-  
-  // body result
-  app.get('/result', (req, res) => {
-    res.render('result')
-  })
+router.post('/login', async (req, res) => {
+  const { email, password } = req.body;
 
-  // body search
-  app.get('/search', (req, res) => {
-    res.render('search')
-  })
+  try {
+    // Kiểm tra email và mật khẩu có tồn tại trong database không
+    const user = await User.findOne({ email });
+    if (!user || !user.isValidPassword(password)) {
+      throw new Error('Invalid email or password');
+    }
 
-  // Define a route for the login page
-  app.get('/login', (req, res) => {
-    res.render('login');
-  })
-
-  // Define a route for processing the login form data
-  app.post('/login', (req, res) => {
-  const { username, password } = req.body;
-  // Add your login logic here
-  res.send(`Welcome, ${username}!`);
+    // Nếu thông tin đăng nhập hợp lệ, lưu user id vào session và redirect đến trang chủ
+    req.session.userId = user._id;
+    res.redirect('/');
+  } catch (err) {
+    res.render('login', { error: err.message });
+  }
 });
 
-  function route(app){
-    app.use('/', siteRouter)
-  }
-
-
-}
-
-module.exports = route;
+module.exports = router;

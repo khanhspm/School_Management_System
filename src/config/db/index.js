@@ -1,5 +1,10 @@
 // Using Node.js `require()`
+const express = require('express');
+const app = express();
 const mongoose = require('mongoose');
+const session = require('express-session');
+const MongoDBStore = require('connect-mongodb-session')(session);
+const indexRouter = require('../../routes/index');
 
 async function connect(){
     try {

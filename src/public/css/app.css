@@ -3,3 +3,9 @@ h1 {
 
 h6 {
   color: green; }
+
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 20px; }
