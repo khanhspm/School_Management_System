@@ -1,33 +1,41 @@
-const express = require('express');
-const router = express.Router();
 const User = require('../models/user');
 
-router.get('/', (req, res) => {
-  res.render('login');
-});
+class LoginController {
 
-router.post('/', async (req, res) => {
-  const { email, password } = req.body;
-
-  try {
-    // Tìm user với email tương ứng
-    const user = await User.findOne({ email });
-    if (!user) {
-      throw new Error('Invalid email or password');
-    }
-
-    // Kiểm tra mật khẩu
-    const isMatch = await user.comparePassword(password);
-    if (!isMatch) {
-      throw new Error('Invalid email or password');
-    }
-
-    // Lưu user id vào session và redirect đến trang chủ
-    req.session.userId = user._id;
-    res.redirect('/');
-  } catch (err) {
-    res.render('login', { error: err.message });
+  //Get /login
+  getLogin(req, res){
+    res.render('login', {layout: 'login_layout'})
   }
-});
 
-module.exports = router;
+  //Post /login
+  postLogin(req, res, next){
+    const email = req.body.email;
+    const password = req.body.password;
+
+    User.findOne({email: email})
+        .then(user => {
+            if (!user) {
+                return res.redirect('/login');
+            }
+            if (password !== user.password) {
+                return res.redirect('/login');
+            }
+            req.session.isLoggedIn = true;
+            req.session.user = user;
+            return req.session.save(err => {
+                console.log(err);
+                res.redirect('/');
+            });
+        })
+        .catch(err => console.log(err));
+  }
+
+  postLogout(req, res, next){
+    req.session.destroy(err => {
+        console.log(err);
+        res.redirect('/');
+    })
+  }
+}
+// Tạo ra đối tượng mới và export ra ngoài.
+module.exports = new LoginController;  

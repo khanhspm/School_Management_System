@@ -1,23 +1,20 @@
-const express = require('express');
-const router = express.Router();
-const User = require('../app/models/user');
+const loginRouter = require('./login');
+const session = require('express-session');
 
-router.post('/login', async (req, res) => {
-  const { email, password } = req.body;
+function route (app){
 
-  try {
-    // Kiểm tra email và mật khẩu có tồn tại trong database không
-    const user = await User.findOne({ email });
-    if (!user || !user.isValidPassword(password)) {
-      throw new Error('Invalid email or password');
-    }
+    // Use the express-session middleware to create a session object
+  app.use(session({
+    secret: 'khanhspm',
+    resave: false,
+    saveUninitialized: true
+  }));
 
-    // Nếu thông tin đăng nhập hợp lệ, lưu user id vào session và redirect đến trang chủ
-    req.session.userId = user._id;
-    res.redirect('/');
-  } catch (err) {
-    res.render('login', { error: err.message });
-  }
-});
+  app.use('/login', loginRouter);
 
-module.exports = router;
+  // body home
+  app.get('/', (req, res) => {
+    res.render('home', {layout: 'main'})
+  })
+} 
+module.exports = route;
