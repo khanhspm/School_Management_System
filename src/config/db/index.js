@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
-const indexRouter = require('../../routes/index');
+const indexRouter = require('../../routes/app');
 
 async function connect(){
     try {

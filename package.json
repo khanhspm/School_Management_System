@@ -2,9 +2,9 @@
   "name": "school_management_system",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "nodemon src/app.js",
+    "start": "nodemon src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "node-sass --watch src/resources/scss --output src/public/css"
   },
@@ -27,18 +27,28 @@
   },
   "homepage": "https://github.com/khanhspm/School_Management_System#readme",
   "dependencies": {
+    "admin-lte": "3.2",
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "bootstrap": "4.6",
+    "connect-flash": "^0.1.1",
     "connect-mongo": "^5.0.0",
     "connect-mongodb-session": "^3.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.1.4",
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-flash-messages": "^0.1.1",
     "express-handlebars": "^7.0.4",
     "express-session": "^1.17.3",
+    "express-validator": "^7.0.1",
     "handlebars": "^4.7.7",
     "install": "^0.13.0",
-    "mongoose": "^7.0.3"
+    "jsonwebtoken": "^9.0.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^7.2.2"
   },
   "devDependencies": {
     "morgan": "^1.10.0",

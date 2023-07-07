@@ -1,18 +1,13 @@
 // Never code in app.css
 // Code here -> run "npm run --watch" to copy to app.css
 
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "variables";
 
-h1{
-    color: $red-color;
-}
-h6{
-    color: green;
-}
-
 footer{
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     text-align: center;
     padding: 20px;
 }
+
