@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const enrollmentSchema = new Schema({
-    student: {
+    student_id: {
         type: Schema.Types.String,
         ref: "Student",
         require: true
@@ -21,6 +21,6 @@ const enrollmentSchema = new Schema({
     final_score: {
         type: Number
     }
-});
+}, { _id: false });
 
 module.exports = mongoose.model('Enrollment', enrollmentSchema);

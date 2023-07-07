@@ -1,5 +1,4 @@
 const authRoute = require('./authRoute');
-const myclassRouter = require('./myclass');
 const errorRouter = require('./errorRoute');
 const studentRouter = require('./student');
 const session = require('express-session');
@@ -24,11 +23,11 @@ function route (app){
 
   // body home
   app.get('/home', (req, res) => {
-    res.render('home', {layout: 'main'})
+    const isAdmin = req.session.user.isAdmin === true;
+    res.render('home', {layout: 'main', isAdmin})
   })
 
   app.use('/', studentRouter);
-  app.use('/myclass', myclassRouter);
   app.use('/', errorRouter);
 } 
 module.exports = route;
