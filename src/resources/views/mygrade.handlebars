@@ -2,19 +2,21 @@
     <table id="tableListBorrowers" class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th>Subject</th>
-                <th>Semester</th>
-                <th>Midterm Score</th>
-                <th>Final Score</th>
+                <th class="text-center">Subject</th>
+                <th class="text-center">Semester</th>
+                <th class="text-center">Midterm Score</th>
+                <th class="text-center">Final Score</th>
             </tr>
         </thead>
         <tbody>
+            {{#each enrollments}}
             <tr >
-                <td>x</td>
-                <td>y</td>
-                <td>z</td>
-                <td>c</td>
+                <td class="text-center">{{this.subject_id}}</td>
+                <td class="text-center">{{this.semester}}</td>
+                <td class="text-center">{{enrollments.midterm_score}}</td>
+                <td class="text-center">{{enrollments.final_score}}</td>
             </tr>
+            {{/each}}
         </tbody>
     </table>
 </div>

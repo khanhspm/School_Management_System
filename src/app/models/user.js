@@ -27,6 +27,6 @@ const userSchema = new Schema({
         type: Boolean,
         default: false
     }
-}, { _id: false });
+}, );
 
 module.exports = mongoose.model('User', userSchema);
