@@ -27,13 +27,14 @@ exports.login = async (req, res) => {
       return res.redirect('/');
     }
 
-    // So sánh mật khẩu đã mã hóa
+    // So sánh mật khẩu
     const isMatch = (password == user.password);
 
     if (isMatch) {
       // Lưu thông tin người dùng vào phiên đăng nhập
       req.session.user = user;
-      return res.redirect('/home');
+      isAdmin = user.isAdmin === true;
+      return res.render('home', { layout: 'main', isAdmin });
     } else {
       req.flash('error_msg', 'Mật khẩu không đúng');
       return res.redirect('/');

@@ -15,6 +15,9 @@ class StudentController{
     mygrade(req,res){
         res.render('mygrade', {layout: 'main'})
     }
+    myclass(req,res){
+        res.render('myclass', {layout: 'main'})
+    }
 }
 
 module.exports = new StudentController;

@@ -1,15 +1,10 @@
 require('dotenv').config();
 const express = require('express');
-const expressLayout = require('express-ejs-layouts');
 const path = require('path');
 const morgan = require('morgan');
 const handlebars = require('express-handlebars');
 const route = require('./routes/app');
 const db = require('./config/db');
-const bcrypt = require('bcryptjs');
-const session = require('express-session');
-const bodyParser = require("body-parser");
-const cors = require("cors");
 const flash = require('connect-flash');
 
 // Connect to DB
