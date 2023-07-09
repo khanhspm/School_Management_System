@@ -1,8 +1,5 @@
-const bcrypt = require('bcryptjs');
 const Handlebars = require('handlebars');
-const { validationResult } = require('express-validator');
-const {session} = require('express-session')
-const User = require('../models/User');
+const User = require('../models/user');
 
 // Đăng ký trình xử lý trợ giúp "not"
 Handlebars.registerHelper('not', function(value) {

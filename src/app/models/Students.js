@@ -3,13 +3,12 @@ const Schema = mongoose.Schema;
 
 const studentSchema = new Schema({
     student_id: {
-        type: Schema.Types.String,
-        ref: "User",
+        type: String,
         require: true
     },
     class_id: {
         type: String
     }
-}, { _id: false })
+}, )
 
 module.exports = mongoose.model('Student', studentSchema);

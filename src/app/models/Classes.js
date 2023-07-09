@@ -12,10 +12,9 @@ const classSchema = new Schema({
     },
     teacher_id: [
         {
-        type: Schema.Types.String,
-        ref: 'Teacher',
+        type: String
         }
     ]
-}, { _id: false });
+}, );
 
 module.exports = mongoose.model('Class', classSchema);

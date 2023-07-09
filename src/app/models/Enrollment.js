@@ -1,13 +1,14 @@
+const { Double } = require('mongodb');
+const { Int32 } = require('mongodb');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const enrollmentSchema = new Schema({
     student_id: {
-        type: Schema.Types.String,
-        ref: "Student",
+        type: String,
         require: true
     },
-    subject_name: {
+    subject_id: {
         type: String,
         required: true
     },
@@ -21,6 +22,6 @@ const enrollmentSchema = new Schema({
     final_score: {
         type: Number
     }
-}, { _id: false });
+});
 
 module.exports = mongoose.model('Enrollment', enrollmentSchema);
