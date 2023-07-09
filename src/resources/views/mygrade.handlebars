@@ -2,19 +2,19 @@
     <table id="tableListBorrowers" class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th class="text-center">Subject</th>
-                <th class="text-center">Semester</th>
-                <th class="text-center">Midterm Score</th>
-                <th class="text-center">Final Score</th>
+                <th class="text-center">Môn học</th>
+                <th class="text-center">Học kỳ</th>
+                <th class="text-center">Điểm giữa kỳ</th>
+                <th class="text-center">Điểm cuối kỳ</th>
             </tr>
         </thead>
         <tbody>
-            {{#each enrollments}}
+            {{#each subject_ids}}
             <tr >
-                <td class="text-center">{{this.subject_id}}</td>
-                <td class="text-center">{{this.semester}}</td>
-                <td class="text-center">{{enrollments.midterm_score}}</td>
-                <td class="text-center">{{enrollments.final_score}}</td>
+                <td class="text-center">{{this}}</td>            
+                <td class="text-center">{{lookup ../semesters @index}}</td>
+                <td class="text-center">{{lookup ../midterm_scores @index}}</td>
+                <td class="text-center">{{lookup ../final_scores @index}}</td>
             </tr>
             {{/each}}
         </tbody>

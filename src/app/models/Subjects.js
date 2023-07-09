@@ -12,4 +12,4 @@ const subjectSchema = new Schema({
     },
 }, );
 
-module.exports = mongoose.model('Subject', teacherSchema);
+module.exports = mongoose.model('Subject', subjectSchema);
