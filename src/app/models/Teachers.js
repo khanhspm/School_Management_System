@@ -10,6 +10,9 @@ const teacherSchema = new Schema({
         type: String,
         require: true
     },
+    phone:{
+        type: String
+    }
 }, );
 
 module.exports = mongoose.model('Teacher', teacherSchema);
