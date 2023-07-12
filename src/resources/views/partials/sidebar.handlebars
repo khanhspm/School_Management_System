@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar sidebar sidebar-static">
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -21,7 +21,7 @@
             <ul class="nav nav-treeview">
               {{#if isAdmin}}
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/myclassteaching" class="nav-link">
                   <i class="fas fa-users-rectangle"></i>
                   <p>My class teaching</p>
                 </a>
@@ -56,14 +56,14 @@
                  
               {{#if isAdmin}}
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/teacher_contact" class="nav-link">
                   <i class="fas fa-address-card"></i>
                   <p>Teacher Contact</p>
                 </a>
                 </li>
                 {{else}}
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="/myteacher" class="nav-link">
                     <i class="fas fa-chalkboard"></i>
                     <p>My teacher</p>
                   </a>
