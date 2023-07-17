@@ -1,13 +1,14 @@
+const { Double } = require('mongodb');
+const { Int32 } = require('mongodb');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const enrollmentSchema = new Schema({
-    student: {
-        type: Schema.Types.String,
-        ref: "Student",
+    student_id: {
+        type: String,
         require: true
     },
-    subject_name: {
+    subject_id: {
         type: String,
         required: true
     },

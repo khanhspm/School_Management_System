@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar sidebar sidebar-static">
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -19,6 +19,14 @@
                 </p>
             </a>
             <ul class="nav nav-treeview">
+              {{#if isAdmin}}
+              <li class="nav-item">
+                <a href="/myclassteaching" class="nav-link">
+                  <i class="fas fa-users-rectangle"></i>
+                  <p>My class teaching</p>
+                </a>
+              </li>
+              {{else}}
                 <li class="nav-item">
                   <a href="/mygrade" class="nav-link">
                     <i class="fas fa-award"></i>
@@ -30,7 +38,9 @@
                   <i class="fas fa-users-rectangle"></i>
                   <p>My Class</p>
                 </a>
-                </li>
+              </li>
+              
+              {{/if}}
               <li class="nav-item"></li>
             </ul>
           </li>
@@ -43,18 +53,22 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="fas fa-chalkboard"></i>
-                    <p>Class Teaching</p>
-                  </a>
-                </li> 
+                 
+              {{#if isAdmin}}
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/teacher_contact" class="nav-link">
                   <i class="fas fa-address-card"></i>
                   <p>Teacher Contact</p>
                 </a>
                 </li>
+                {{else}}
+                <li class="nav-item">
+                  <a href="/myteacher" class="nav-link">
+                    <i class="fas fa-chalkboard"></i>
+                    <p>My teacher</p>
+                  </a>
+                </li>
+              {{/if}}
               <li class="nav-item"></li>
             </ul>
           </li>
