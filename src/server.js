@@ -6,6 +6,7 @@ const handlebars = require('express-handlebars');
 const route = require('./routes/app');
 const db = require('./config/db');
 const flash = require('connect-flash');
+const Handlebars = require('handlebars');
 
 // Connect to DB
 db.connect()
@@ -30,6 +31,17 @@ app.engine('.handlebars', handlebars.engine({
 }));
 app.set('view engine', '.handlebars') 
 app.set('views', path.join(__dirname, 'resources/views'))
+
+Handlebars.registerHelper('formatDate', function(dateString) {
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+
+  const formattedDate = `${day < 10 ? '0' : ''}${day}/${month < 10 ? '0' : ''}${month}/${year}`;
+
+  return formattedDate;
+});
 
 // Routes init
 route(app);

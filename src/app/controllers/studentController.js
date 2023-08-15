@@ -5,9 +5,17 @@ const User = require('../models/user');
 const Subject = require('../models/Subjects');
 const Teacher = require('../models/Teachers');
 const Class = require('../models/Classes');
+const Student = require('../models/Students');
+const Enrollment = require('../models/Enrollment');
+const User = require('../models/user');
+const Subject = require('../models/Subjects');
+const Teacher = require('../models/Teachers');
+const Class = require('../models/Classes');
 class StudentController{
     getProfile(req, res){
         const user = req.session.user;
+        isAdmin = user.isAdmin === true;
+        res.render('profile', { user, isAdmin, layout: 'main'});
         isAdmin = user.isAdmin === true;
         res.render('profile', { user, isAdmin, layout: 'main'});
       };
@@ -116,12 +124,12 @@ class StudentController{
     res.render('myteacher', {isAdmin, subjects, emails, names, phones, genders, layout: 'main'})
   }
 
-  async myclass_teaching(req,res){
+  getTimetable(req, res){
     const user = req.session.user;
     isAdmin = user.isAdmin === true;
-    
-    res.render('myclass_teaching', {isAdmin, layout: 'main'})
-  }
+    res.render('timetable', { user, isAdmin, layout: 'main'});
+  };
+
 }
 
 module.exports = new StudentController;

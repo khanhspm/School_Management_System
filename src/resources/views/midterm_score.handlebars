@@ -1,0 +1,163 @@
+
+
+<div class="card-body">
+    <form action="enhanced-results.html" data-select2-id="12">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="classes">Lớp</label>
+                    <select class="form-control select2" id="select-class-id"  style="width: 100%;" name="class-name">
+                        <option data-id="0" selected="selected">Lớp</option>
+                        <option data-id="1" selected="selected">12C6</option>
+                        <option data-id="2" selected="selected">12C5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="semesters">Học kỳ</label>
+                    <select class="form-control select2" id="select-semester"  style="width: 100%;" name="semester">
+                        <option data-id="0" selected="selected">Học kỳ</option>
+                        <option data-id="1" selected="selected">2022.1</option>
+                        <option data-id="2" selected="selected">2022.2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="content-right" style="margin-left: auto;" >
+                <a href="#" class="btn btn-primary btn-block w-20"><b>Xem</b></a>
+            </div>            
+        </div>
+    </form>
+    <div class="card">
+<div class="card-header">
+<h3 class="card-title text-center" style="margin-left: 395px;">Danh sách điểm học sinh</h3>
+</div>
+
+<div class="card-body">
+<div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+    <div class="row">
+        <div class="col-sm-12">
+            <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
+                <thead>
+                <tr>
+                    <th>Họ và tên</th>
+                    <th>Ngày sinh</th>
+                    <th>Giới tính</th>
+                    <th>Email</th>
+                    <th>Điểm thi</th>
+                    <th>Bonus</th>
+                    <th>Hành động</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mạc Văn Khánh</td>
+                        <td>06/05/2002</td>
+                        <td>Nam</td>
+                        <td>khanhcshadu@gmail.com</td>
+                        <td>9</td>
+                        <td>0.5</td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default"><a href="">Sửa điểm</a></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nguyễn Văn Hùng</td>
+                        <td>16/01/2002</td>
+                        <td>Nam</td>
+                        <td>nguyenvanhung@gmail.com</td>
+                        <td>8.5</td>
+                        <td>1</td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default"><a href="">Sửa điểm</a></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bùi Quốc Đạt</td>
+                        <td>06/09/2002</td>
+                        <td>Nam</td>
+                        <td>buiquocdat@gmail.com</td>
+                        <td>9</td>
+                        <td>0</td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default"><a href="">Sửa điểm</a></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Trương Tấn Phát</td>
+                        <td>03/02/2002</td>
+                        <td>Nam</td>
+                        <td>truongtanphat@gmail.com</td>
+                        <td>8</td>
+                        <td>1</td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default"><a href="">Sửa điểm</a></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bùi Phương Thảo</td>
+                        <td>26/09/2001</td>
+                        <td>Nữ</td>
+                        <td>buiphuongthao@gmail.com</td>
+                        <td>9</td>
+                        <td>0</td>
+                        <td>
+                            {{!-- <div class="btn-group">
+                                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Nhập điểm</button>
+                            </div> --}}
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"><a href="">Sửa điểm</a></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                
+                </table>
+</div>
+<!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sửa điểm</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <label class="col-lg-3 col-form-label" for="score" id="">Điểm thi </label>
+                        <div class="form-group col-lg-9">
+                            <input type="text" name="score" id="score" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <label class="col-lg-3 col-form-label" for="bonus" id="">Bonus</label>
+                        <div class="form-group col-lg-9">
+                            <input type="text" name="bonus" id="bonus" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          <button type="button" class="btn btn-primary" id="saveBtn">Lưu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

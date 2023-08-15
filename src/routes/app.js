@@ -1,6 +1,7 @@
 const authRoute = require('./authRoute');
 const errorRouter = require('./errorRoute');
 const studentRouter = require('./student');
+const teacherRouter = require('./teacher');
 const session = require('express-session');
 const authConfig = require('../config/auth/auth.config');
 
@@ -26,5 +27,6 @@ function route (app){
 
   app.use('/', studentRouter);
   app.use('/', errorRouter);
+  app.use('/', teacherRouter);
 } 
 module.exports = route;

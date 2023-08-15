@@ -7,6 +7,6 @@ router.get('/mygrade', StudentController.mygrade);
 router.get('/myclass', StudentController.myclass);
 router.get('/myteacher', StudentController.myteacher);
 router.get('/teacher_contact', StudentController.teacher_contact);
-router.get('/myclassteaching', StudentController.myclass_teaching);
+router.get('/timetable', StudentController.getTimetable);
 
 module.exports = router
