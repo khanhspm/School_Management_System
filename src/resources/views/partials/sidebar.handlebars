@@ -3,12 +3,21 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          {{#if isAdmin}}
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/timeteaching" class="nav-link">
               <i class="nav-icon fas fa-school"></i>
-              <p>School</p>
+              <p>Time Teaching</p>
             </a>
           </li>
+          {{else}}
+          <li class="nav-item">
+            <a href="/timetable" class="nav-link">
+              <i class="nav-icon fas fa-school"></i>
+              <p>Timetable</p>
+            </a>
+          </li>
+          {{/if}}
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
@@ -22,15 +31,45 @@
               {{#if isAdmin}}
               <li class="nav-item">
                 <a href="/myclassteaching" class="nav-link">
-                  <i class="fas fa-users-rectangle"></i>
+                  <i class="fas fa-memory"></i>
                   <p>My class teaching</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/midtermscore" class="nav-link">
+                  <i class="fas fa-align-center"></i>
+                  <p>Middle Term Score</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/finaltermscore" class="nav-link">
+                  <i class="fas fa-biohazard"></i>
+                  <p>Final Term Score</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="fas fa-envelope-open-text"></i>
+                  <p>Checking Test</p>
                 </a>
               </li>
               {{else}}
                 <li class="nav-item">
                   <a href="/mygrade" class="nav-link">
                     <i class="fas fa-award"></i>
-                    <p>My Grade</p>
+                    <p>My Grade Subject</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/mygrade" class="nav-link">
+                    <i class="fas fa-award"></i>
+                    <p>My Grade Semester</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/mygrade" class="nav-link">
+                    <i class="fas fa-award"></i>
+                    <p>Checking Test</p>
                   </a>
                 </li>
               <li class="nav-item">
@@ -72,6 +111,14 @@
               <li class="nav-item"></li>
             </ul>
           </li>
+          {{!-- {{#if isAdmin}}
+          <li class="nav-item">
+            <a href="" class="nav-link">
+              <i class="fas fa-users"></i>
+              <p>List Users</p>
+            </a>
+          </li>
+          {{/if}} --}}
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

@@ -116,12 +116,12 @@ class StudentController{
     res.render('myteacher', {isAdmin, subjects, emails, names, phones, genders, layout: 'main'})
   }
 
-  async myclass_teaching(req,res){
+  getTimetable(req, res){
     const user = req.session.user;
     isAdmin = user.isAdmin === true;
-    
-    res.render('myclass_teaching', {isAdmin, layout: 'main'})
-  }
+    res.render('timetable', { user, isAdmin, layout: 'main'});
+  };
+
 }
 
 module.exports = new StudentController;

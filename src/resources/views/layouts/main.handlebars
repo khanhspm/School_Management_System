@@ -79,7 +79,7 @@
     <script src="themes/plugins/jquery-mapael/maps/usa_states.min.js"></script>
     <!-- ChartJS -->
     <script src="themes/plugins/chart.js/Chart.min.js"></script>
-     src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+     <src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
     <script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
     <script src="../../plugins/jszip/jszip.min.js"></script>
     <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
@@ -87,5 +87,22 @@
     <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
+  <script>
+  // Bắt sự kiện khi nút "Lưu" được nhấn
+  document.getElementById('saveBtn').addEventListener('click', function() {
+    $('#myModal').modal('hide');
+    // Hiển thị thông báo SweetAlert lưu thành công
+    Swal.fire({
+      icon: 'success',
+      title: 'Lưu thành công!',
+      showConfirmButton: false,
+      timer: 150000 // Thời gian hiển thị thông báo (tính bằng miliseconds)
+    });
+  });
+</script>
 </body>
 </html>
